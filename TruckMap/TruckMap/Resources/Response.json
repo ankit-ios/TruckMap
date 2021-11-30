@@ -1,0 +1,45 @@
+
+//Truck
+ {
+       "id": 292,
+       "companyId": 33,
+       "truckTypeId": 0,
+       "truckSizeId": 0,
+       "truckNumber": "HR38 N 4227",
+       "transporterId": 0,
+       "trackerType": 2,
+       "imeiNumber": "867556043876914",
+       "simNumber": "5754203833363",
+       "name": "",
+       "password": "",
+       "createTime": 1632813771353,
+       "deactivated": false,
+       "breakdown": false,
+       "lastWaypoint": {
+         "id": 256,
+         "lat": 30.75795555114746,
+         "lng": 76.13236236572266,
+         "createTime": 1638083313000,
+         "accuracy": 10,
+         "bearing": 26,
+         "truckId": 292,
+         "speed": 0,
+         "updateTime": 1638083321272,
+         "ignitionOn": false,
+         "odometerReading": 2313.45,
+         "batteryPower": false,
+         "fuelLevel": 0,
+         "batteryLevel": 0
+       },
+       "lastRunningState": {
+         "truckId": 292,
+         "stopStartTime": 1638043101000,
+         "truckRunningState": 0,
+         "lat": 30.757902145385742,
+         "lng": 76.13243865966797,
+         "stopNotficationSent": 1
+       },
+       "durationInsideSite": 0,
+       "fuelSensorInstalled": false,
+       "externalTruck": false
+     }
