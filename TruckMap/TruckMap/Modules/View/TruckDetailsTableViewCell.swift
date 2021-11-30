@@ -17,11 +17,6 @@ class TruckDetailsTableViewCell: UITableViewCell {
     @IBOutlet private weak var speedLabel: UILabel!
     
     
-    override class func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
-    
     func updateUI(for viewModel: TruckDetailListViewModel) {
         truckNumberLabel.text = viewModel.truckNumber
         durationLabel.text = viewModel.duration ?? ""

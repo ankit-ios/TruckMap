@@ -16,7 +16,7 @@ class TruckListViewController: UIViewController {
     private let datasource = TruckDetailsDataSourceViewModel.shared
     private var isSearch = false
     private var filteredTrucks: [Truck] = []
-    
+    private let cellIdentifier = "TruckDetailsTableViewCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,7 @@ extension TruckListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let dataSource = isSearch ? filteredTrucks : trucks
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TruckDetailsTableViewCell", for: indexPath) as! TruckDetailsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! TruckDetailsTableViewCell
         cell.updateUI(for: TruckDetailListViewModel(truck: dataSource[indexPath.row]))
         return cell
     }
@@ -70,12 +70,11 @@ extension TruckListViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
             isSearch = false
-            tableView.reloadData()
         } else {
             filteredTrucks = trucks
                 .filter { $0.truckNumber?.range(of: searchText, options: .caseInsensitive) != nil }
             isSearch = !filteredTrucks.isEmpty
-            tableView.reloadData()
         }
+        tableView.reloadData()
     }
 }

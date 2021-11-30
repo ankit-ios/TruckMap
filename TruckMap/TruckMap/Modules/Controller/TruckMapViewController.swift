@@ -30,15 +30,13 @@ class TruckMapViewController: UIViewController {
 private extension TruckMapViewController {
     
     func updateMap() {
-        trucks.forEach { self.mapSetup(truck: $0) }
+        trucks.forEach { mapSetup(truck: $0) }
     }
     
     func mapSetup(truck: Truck) {
         let latitude = truck.lastWaypoint?.lat ?? 0.0
         let longitude = truck.lastWaypoint?.lng ?? 0.0
-        let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: 10.0)
-        googleMap.camera = camera
-        let marker = CustomeGMSMarker(truck: truck, position: googleMap.camera.target)
-        marker.map = googleMap
+        googleMap.camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: 10.0)
+        CustomeGMSMarker(truck: truck, position: googleMap.camera.target).map = googleMap
     }
 }
